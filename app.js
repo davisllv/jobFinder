@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-
 const db = require("./database/connection");
 
 app.listen(3333, () => {
@@ -9,11 +8,16 @@ app.listen(3333, () => {
 
 // db conection
 
-db.authenticate()
-  .then(() => {
-    console.log("Conectou");
-  })
-  .catch((err) => console.log("Errors", err));
+async function connectIntoDataBase() {
+  try {
+    await db.authenticate();
+    console.log("Connection has been stablished");
+  } catch (err) {
+    console.log("Unable to connect the database: ", err);
+  }
+}
+
+connectIntoDataBase();
 
 //routes
 app.get("/", (request, response) => {
