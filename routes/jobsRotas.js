@@ -8,12 +8,16 @@ Router.get("/", (req, res) => {
 
 Router.post("/add", async (request, response) => {
   const { title, description, salary, company, email, newJob } = request.body;
-  console.log(title);
-  //   const job = await JobModel.create({
-  //     ...req.body,
-  //   });
+  const job = await JobModel.create({
+    title,
+    description,
+    salary,
+    company,
+    email,
+    newJob,
+  });
   console.log(request.body);
-  response.json({ message: title });
+  response.json({ message: `${job} has been created` });
 });
 
 module.exports = Router;

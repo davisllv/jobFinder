@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require("sequelize");
 const sequelize = require("../database/connection");
 
-const Job = sequelize.define("job", {
+const Job = sequelize.define("geralTrabalho", {
   title: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -27,6 +27,13 @@ const Job = sequelize.define("job", {
   newJob: {
     type: Sequelize.BOOLEAN,
     allowNull: true,
+  },
+
+  created_at: {
+    type: Sequelize.DATE,
+  },
+  update_at: {
+    type: Sequelize.DATE,
   },
 });
 

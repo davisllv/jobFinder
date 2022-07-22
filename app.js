@@ -4,13 +4,12 @@ const db = require("./database/connection");
 const jobsRota = require("./routes/jobsRotas");
 const bodyParser = require("body-parser");
 
-app.listen(3333, () => {
-  console.log("Servidor Iniciado");
-});
+app.listen(3333);
 
 // body parser
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // db conection
 
@@ -30,4 +29,4 @@ app.get("/", (request, response) => {
   return response.json({ message: "Servidor rodando man" });
 });
 
-app.use("/job", jobsRota);
+app.use("/jobs", jobsRota);
