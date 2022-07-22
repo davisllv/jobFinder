@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require("sequelize");
 const sequelize = require("../database/connection");
 
-const Job = sequelize.define("geralTrabalho", {
+const Job = sequelize.define("geralTrabalhos", {
   title: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -15,12 +15,12 @@ const Job = sequelize.define("geralTrabalho", {
     allowNull: false,
   },
   company: {
-    type: Sequelize.STRING(),
+    type: Sequelize.STRING,
     allowNull: false,
   },
 
   email: {
-    type: Sequelize.STRING(),
+    type: Sequelize.STRING,
     allowNull: false,
   },
 
